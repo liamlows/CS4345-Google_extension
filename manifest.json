@@ -1,0 +1,14 @@
+{
+  "name": "Spoil-Me-Not",
+  "version": "1.0",
+  "description": "An extension that will filter out spoilers from your favorite shows!",
+  "manifest_version": 2,
+  "background": {
+    "scripts": ["runner.js"],
+    "persistent": false
+  },
+  "permissions": ["declarativeContent","storage"],
+  "page_action": {
+    "default_popup": "view.html"
+  }
+}
