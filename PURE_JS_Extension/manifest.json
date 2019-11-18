@@ -1,19 +1,25 @@
 {
+  "name": "Spoil-Me-Not",
+  "version": "1.1",
+  "description": "Extension used to block snow spoilers",
   "manifest_version": 2,
-  "name": "Modify CSS and HTML",
-  "version": "0.1.0",
-  "description": "Lateral blog post demo extension",
+  "permissions": [
+    "tabs",
+    "activeTab", 
+    "declarativeContent", 
+    "storage"
+  ],
   "browser_action": {
-    "default_popup": "./index.html"
+    "default_popup": "popup.html",
+    "default_title": "Spoil-Me-Not"
   },
-  "permissions": ["activeTab", "declarativeContent", "storage"],
   "background": {
-    "scripts": ["script.js"]
+    "scripts": ["content.js"]
   },
   "content_scripts": [{
-    "css": ["styles.css"],
+    "css": ["popup.css"],
     "js": ["content.js"],
     "matches": ["<all_urls>"]
-  }]
-
+  }],
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
 }

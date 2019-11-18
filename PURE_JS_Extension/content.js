@@ -11,10 +11,14 @@ blurToggle = (listOWords) => {
         if(match.innerText.toUpperCase().includes(word.toUpperCase())){
           // console.log("one contains\n");
           match.style.filter = 'blur(0.2rem)';
+          match.className = 'blur';
         }
       });
     });
   }
 }
 
-blurToggle(['Game of thrones', 'Greys anatomy', 'otherwise', 'example']);
+blurToggle(['since'] /*|| localStorage.getItem('wordList')*/);
+
+
+
