@@ -1,0 +1,9 @@
+{
+  "name": "Spoil Me Not",
+  "version": "1.0",
+  "manifest_version": 2,
+  "browser_action": {
+      "default_popup": "index.html"
+  },
+  "content_security_policy": "script-src 'self' 'sha256-qnTXqkurLs+28ma3K2nQRbaedUQyxj9VSpsQxCqCmA8='; object-src 'self';"
+}
