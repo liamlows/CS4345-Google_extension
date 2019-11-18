@@ -6,6 +6,10 @@
   "browser_action": {
     "default_popup": "./index.html"
   },
+  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "background": {
+    "scripts": ["script.js"]
+  },
   "content_scripts": [{
     "css": ["styles.css"],
     "js": ["content.js"],
