@@ -9,7 +9,7 @@ $(function() {
             .then(r => { return r.json() })
             .then(r => {
                 console.log(r);
-                localStorage.setItem("wordList", JSON.stringify(r));
+                chrome.storage.sync.set({ wordList: r }, () => {});
             })
             .catch(r => {
                 alert(r);
