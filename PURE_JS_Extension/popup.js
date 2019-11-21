@@ -24,10 +24,20 @@ $(function() {
             .then(r => {
                 console.log(r);
                 //Store list of words
-                chrome.storage.sync.set({ wordList: r }, () => {
-                    document.getElementById("load").classList.remove('loader');
-                    alert('Word list loaded, you may now browse safely!');
+                var bool = true;
+                chrome.storage.sync.get('wordList', (wList) => {
+                    chrome.storage.sync.set({ wordList: wList.wordList.concat(r) }, () => { 
+                        document.getElementById("load").classList.remove('loader');
+                        alert('Word list loaded, you may now browse safely!');
+                        bool = false;
+                    });
                 });
+                if (bool){
+                    chrome.storage.sync.set({ wordList: r }, () => {
+                        document.getElementById("load").classList.remove('loader');
+                        alert('Word list loaded, you may now browse safely!');
+                    });
+                }
             })
             .catch(r => {
                 console.log(r);
