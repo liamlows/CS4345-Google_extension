@@ -15,13 +15,5 @@ $(function() {
             .catch(r => {
                 alert(r);
             });
-        
-        //GET LIST OF DATA
-        //PUT IT IN LOCALSTORAGE
-
-    });
-
-    $('.blur').click(function() {
-
     });
 });
