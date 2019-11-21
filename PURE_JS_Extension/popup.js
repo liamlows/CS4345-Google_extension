@@ -26,12 +26,14 @@ $(function() {
                 //Store list of words
                 var bool = true;
                 chrome.storage.sync.get('wordList', (wList) => {
-                    chrome.storage.sync.set({ wordList: wList.wordList.concat(r) }, () => { 
-                        document.getElementById("load").classList.remove('loader');
-                        alert('Word list loaded, you may now browse safely!');
-                        $('#show-name').val("");
-                        bool = false;
-                    });
+                    if (wList.wordList){
+                        chrome.storage.sync.set({ wordList: wList.wordList.concat(r) }, () => { 
+                            document.getElementById("load").classList.remove('loader');
+                            alert('Word list loaded, you may now browse safely!');
+                            $('#show-name').val("");
+                            bool = false;
+                        });
+                    }
                 });
                 if (bool){
                     chrome.storage.sync.set({ wordList: r }, () => {
