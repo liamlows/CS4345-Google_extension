@@ -1,14 +1,36 @@
 <html>
   <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+    <script src="dep/jquery.js"></script>
+    <script src="dep/popper.min.js"></script>
+    <script src="dep/bootstrap.min.js"></script>
     <script src="popup.js"></script>
+    <script src="jokes.js"></script>
+
+    <link rel="stylesheet" href="popup.css">
   </head>
-  <body style="width: 400px;">
-    <h1>Enter show</h1>
-    <br>
-    <input type="text" name="show-name" id="show-name">
-    <button id="btn">Submit</button>
-    <button id="dlt">Clear Spoiler List</button>
-    <button id="reblr">Re-blur page</button>
+  <body style="width: 400px; height:600px;" >
+    <div class="container-fluid main h100 w100 text-white">
+      <div class="h-100 w-100 d-flex justify-content-center align-items-center flex-column text-center">
+          <h1 >Spoil Me Not!</h1>
+          <hr class="style-one">
+          <p> Welcome to spoil me not, please enter the name of the show you wish to filter below. It may take some time to fetch so please be patient but you only have to do it once.</p>
+          <div class="alert alert-primary w-100">
+              <form>
+                  <div class="form-group">
+                    <label for="show-name">Enter Show Name:</label>
+                    <textarea class="form-control" rows="2" name="show-name" id="show-name" required></textarea>
+                  </div>
+                  <button id="btn" class="btn btn-primary btn-block" >Add</button>
+                  <button class="btn btn-danger btn-block" id="dlt">Remove Filter</button>
+                  <button class="btn btn-info btn-block" id="reblr">Toggle Filter</button>
+               </form>
+
+          </div>
+          <p id="joke"></p>
+          <div id="load"></div>
+      </div>
+    </div>
   </body>
 </html>
