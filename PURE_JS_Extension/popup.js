@@ -27,7 +27,7 @@ $(function() {
         alert('Spoiler list clear, browse carefully!');
     });
 
-    $('#reblr').click(function () {
-        chrome.storage.sync.set({ reblur: true });
+    $('#reblr').click(function() {
+        chrome.tabs.reload();
     });
 });

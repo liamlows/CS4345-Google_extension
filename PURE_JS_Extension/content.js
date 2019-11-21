@@ -30,9 +30,10 @@ chrome.storage.sync.get('wordList', (r) => {
     blurToggle(r.wordList)
 });
 
-chrome.storage.sync.get('reblur', r => {
-  if (r.reblur){
-    chrome.storage.sync.remove('reblur');
-    blurToggle(chrome.storage.sync.get('wordList', r => { return r.wordList }));
-  }
-})
+// chrome.storage.sync.get('reblur', r => {
+//   if (r.reblur){
+//     alert('here');
+//     chrome.storage.sync.remove('reblur');
+//     location.reload(true);
+//   }
+// })
