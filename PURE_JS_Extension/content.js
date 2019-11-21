@@ -9,24 +9,30 @@ blurToggle = (list) => {
       matches.forEach(match => {
         if(match.innerText.toUpperCase().includes(word.toUpperCase())){
           console.log("found something to blur.");
-          match.style.filter = 'blur(0.2rem)';
           match.classList.add('blur');
-          match.addEventListener('click', function() {
-            if (match.classList.contains('blur')){
-              match.style.filter = 'blur(0)';
-              match.classList.remove('blur');
-            } else {
-              match.style.filter = 'blur(0.2rem)';
-              match.classList.add('blur');
-            } 
-          });
+          addListeners(match);
         }
       });
     });
   }
 }
 
+addListeners = async (match) => {
+  await match.addEventListener('click', function() {
+    if (match.classList.contains('blur')){
+      match.classList.remove('blur');
+    } 
+  });
+}
+
 chrome.storage.sync.get('wordList', (r) => {
   if (r.wordList)
     blurToggle(r.wordList)
 });
+
+chrome.storage.sync.get('reblur', r => {
+  if (r.reblur){
+    chrome.storage.sync.remove('reblur');
+    blurToggle(chrome.storage.sync.get('wordList', r => { return r.wordList }));
+  }
+})

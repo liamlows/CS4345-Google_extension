@@ -1,3 +1,7 @@
 .blur {
     filter:blur(0.2rem);
 }
+
+.unblur {
+    filter: blur(0rem);
+}
