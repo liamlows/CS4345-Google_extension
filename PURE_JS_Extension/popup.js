@@ -2,7 +2,7 @@ $(function() {
     $('#btn').click(async function() {
         //create URL
         let val = $('#show-name').val();
-        var url = `http://ec2-18-191-182-243.us-east-2.compute.amazonaws.com/show=${val}`;
+        var url = `ec2-3-17-5-181.us-east-2.compute.amazonaws.com=${val}`;
          
         //Call api endpoint
         await fetch(url, { method:'GET', mode:'cors', credentials:'same-origin' })
@@ -22,6 +22,6 @@ $(function() {
     });
 
     $('.blur').click(function() {
-        
+
     });
 });
