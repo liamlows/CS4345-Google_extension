@@ -9,6 +9,7 @@ $(function() {
             .then(r => { return r.json() })
             .then(r => {
                 console.log(r);
+                //Store list of words
                 chrome.storage.sync.set({ wordList: r }, () => {});
             })
             .catch(r => {
@@ -18,5 +19,9 @@ $(function() {
         //GET LIST OF DATA
         //PUT IT IN LOCALSTORAGE
 
+    });
+
+    $('.blur').click(function() {
+        
     });
 });

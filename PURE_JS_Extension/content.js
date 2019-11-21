@@ -10,7 +10,16 @@ blurToggle = (list) => {
         if(match.innerText.toUpperCase().includes(word.toUpperCase())){
           console.log("found something to blur.");
           match.style.filter = 'blur(0.2rem)';
-          match.className = 'blur';
+          match.classList.add('blur');
+          match.addEventListener('click', function() {
+            if (match.classList.contains('blur')){
+              match.style.filter = 'blur(0)';
+              match.classList.remove('blur');
+            } else {
+              match.style.filter = 'blur(0.2rem)';
+              match.classList.add('blur');
+            } 
+          });
         }
       });
     });
@@ -21,6 +30,3 @@ chrome.storage.sync.get('wordList', (r) => {
   if (r.wordList)
     blurToggle(r.wordList)
 });
-
-
-
