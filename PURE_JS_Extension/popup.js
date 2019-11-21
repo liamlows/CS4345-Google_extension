@@ -2,6 +2,10 @@ $(function() {
     $('#btn').click(async function() {
         //create URL
         let val = $('#show-name').val();
+        console.log(val);
+        if (!val) {
+            return;
+        }
         var reg = /[\w\s]+/gi;
         val = val.match(reg).join();
         document.getElementById("load").classList.add('loader');
