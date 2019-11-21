@@ -11,9 +11,17 @@ $(function() {
                 console.log(r);
                 //Store list of words
                 chrome.storage.sync.set({ wordList: r }, () => {});
+                alert('Word list loaded, you may now browse safely!');
             })
             .catch(r => {
                 alert(r);
+                alert('Error while processing your request, try again or change your input query.');
             });
+    });
+
+    $('#dlt').click(function() {
+        chrome.storage.sync.remove('wordList');
+        console.log('click');
+        alert('Spoiler list clear, browse carefully!');
     });
 });
