@@ -26,6 +26,7 @@ $(function() {
                 //Store list of words
                 chrome.storage.sync.set({ wordList: r }, () => {
                     document.getElementById("load").classList.remove('loader');
+                    $('#show-name').val("");
                     alert('Word list loaded, you may now browse safely!');
                 });
             })
