@@ -20,6 +20,7 @@ $(function() {
             })
             .catch(r => {
                 console.log(r);
+                document.getElementById("load").classList.remove('loader');
                 alert('Error while processing your request, try again or change your input query.');
             });
     });
