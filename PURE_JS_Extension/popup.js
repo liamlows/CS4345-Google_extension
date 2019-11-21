@@ -14,7 +14,7 @@ $(function() {
                 alert('Word list loaded, you may now browse safely!');
             })
             .catch(r => {
-                alert(r);
+                console.log(r);
                 alert('Error while processing your request, try again or change your input query.');
             });
     });
