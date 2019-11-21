@@ -14,7 +14,13 @@ $(function() {
         // alert('Sending your request... please be patient!');
     
         await fetch(url, { method:'GET'})
-            .then(r => { return r.json() })
+            .then(r => {
+                console.log(r);
+                if(r.status == 501) {
+                    throw "NOT IMPLEMENTED";
+                }
+                return r.json() 
+            })
             .then(r => {
                 console.log(r);
                 //Store list of words
@@ -26,7 +32,7 @@ $(function() {
             .catch(r => {
                 console.log(r);
                 document.getElementById("load").classList.remove('loader');
-                alert('Error while processing your request, try again or change your input query.' + r);
+                alert('Error while processing your request, try again or change your input query.');
             });
     });
     $('#dlt').click(function() {
